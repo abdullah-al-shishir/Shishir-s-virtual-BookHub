@@ -162,10 +162,13 @@ header {
 
 /* Footer */
 footer {
-  background-color: #333;
+  background-color: #ffffff;
   color: white;
   text-align: center;
   padding: 20px;
+}
+.footer-design {
+  color: #625a5a;
 }
 
 /* Responsive Design */
