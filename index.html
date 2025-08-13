@@ -27,33 +27,38 @@
   </head>
   <body>
     <header>
-      <div class="header-content">
+      <nav class="navbar">
         <div class="logoDiv">
           <a href="#"
             ><img src="images/Book-logo.webp" alt="BookStack Logo"
           /></a>
           <h3>Books.</h3>
         </div>
-        <div class="menu">
+        <div class="menu-toggle" id="mobile-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="menu" id="main-menu">
           <ul>
             <li><a href="#">Books</a></li>
             <li><a href="#">Categories</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">About Me</a></li>
           </ul>
+          <div class="contact">
+            <input
+              type="search"
+              name=""
+              id=""
+              placeholder="Search Book Here..."
+            />
+          </div>
+          <div class="createBtn">
+            <button type="submit">Create Account</button>
+          </div>
         </div>
-        <div class="contact">
-          <input
-            type="search"
-            name=""
-            id=""
-            placeholder="Search Book Here..."
-          />
-        </div>
-        <div class="createBtn">
-          <button type="submit">Create Account</button>
-        </div>
-      </div>
+      </nav>
     </header>
     <hr />
     <main>

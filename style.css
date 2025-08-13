@@ -7,30 +7,36 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Libertinus Serif", serif;
+}
 .row {
   width: 100%;
-  max-width: 1300px; /* Limits the max width of the content */
+  max-width: 1300px;
   margin: auto;
   padding: 0 15px;
 }
 
 /* Header Styles */
 header {
-  text-align: center;
   background-color: rgba(103, 92, 61, 0.559);
   padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.header-content {
+
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1300px;
-  gap: 15px;
-  align-items: center;
+  margin: auto;
+  padding: 0 15px;
 }
+
 .logoDiv {
   display: flex;
   align-items: center;
@@ -47,63 +53,94 @@ header {
 }
 .logoDiv h3 {
   color: white;
+  font-family: "Merienda", cursive;
+  font-size: 1.5rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .menu ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 .menu ul li a {
   text-decoration: none;
   color: white;
   font-size: 1.2rem;
   transition: color 0.3s;
+  font-family: "Libertinus Serif", serif;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 .menu ul li a:hover {
   color: rgb(141, 24, 34);
+  background-color: rgba(255, 255, 255, 0.2);
 }
+
 .contact {
-  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
 }
 .contact input {
   border: 2px solid rgb(202, 77, 125);
   padding: 10px;
-  width: 100%;
+  width: 250px;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .createBtn button {
   color: aliceblue;
-  padding: 12px;
+  padding: 12px 20px;
   background-color: rgb(118, 71, 165);
   border-radius: 7px;
   border: none;
   box-shadow: 1px 2px 0 0 #0c0d0d;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .createBtn button:hover {
-  cursor: pointer;
+  background-color: rgb(90, 50, 130);
 }
 .createBtn button:active {
   color: rgb(176, 154, 64);
   background-color: rgb(70, 9, 67);
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Main Content Styles */
 .bio {
-  padding: 20px 15px;
+  padding: 20px 20px;
 }
 .bio-text {
   text-align: center;
   padding: 10px;
   font-family: "Merienda", cursive;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: white;
   background-color: rgba(103, 92, 61, 0.559);
-  border-radius: 6px;
+  border-radius: 8px;
+  line-height: 1.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bookList {
@@ -158,6 +195,7 @@ header {
   align-items: center;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Footer */
@@ -170,15 +208,14 @@ footer {
 .footer-design {
   color: #625a5a;
 }
+.footer-design a {
+  color: #625a5a;
+  text-decoration: none;
+}
 
 /* Responsive Design */
 /* Medium devices (Tablets: 768px and up) */
 @media (min-width: 768px) {
-  .header-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
   .menu ul {
     flex-direction: row;
   }
@@ -198,9 +235,53 @@ footer {
   }
 }
 
-/* Small devices (Mobile: up to 576px) */
-@media (max-width: 576px) {
+/* Small devices (Mobile: up to 767px) */
+@media (max-width: 767px) {
   .bio-text {
     font-size: 1.2rem;
+  }
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    gap: 15px;
+    text-align: center;
+  }
+  .menu.active {
+    display: flex;
+  }
+  .menu ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  .menu ul li a {
+    display: block;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .contact {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .contact input {
+    width: 100%;
+  }
+  .createBtn {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .createBtn button {
+    width: 100%;
   }
 }
