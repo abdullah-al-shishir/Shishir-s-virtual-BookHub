@@ -221,6 +221,7 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
+  border-top: 1.5px solid #a19a9a;
 }
 .footer-design {
   color: #625a5a;
