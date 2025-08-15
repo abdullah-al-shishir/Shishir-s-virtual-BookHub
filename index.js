@@ -57,11 +57,33 @@ function createBio() {
     headingBio.innerHTML = "You can easily find all the books here! ";
     mainBody.innerHTML = ``;
 
-    console.log("clicked");
+    const newSection = catagorySection();
+    mainBody.appendChild(newSection);
+
+    console.log("Catagory Button is clicked");
   });
   // -------Blog Button------//
   // -------About Button------//
 }
+function catagorySection() {
+  const catagoryContainer = document.createElement("div");
+  catagoryContainer.classList.add("catagory-container");
+
+  // First div
+  const fictionDiv = document.createElement("div");
+  const fictionHeading = document.createElement("h1");
+  fictionHeading.innerText = "wh";
+  const fictionList = document.createElement("p");
+  fictionList.innerText = "a book wegfuwf wwfbwriug wbfuwf ubuwibfw wbfwvf fw";
+
+  fictionDiv.appendChild(fictionHeading);
+  fictionDiv.appendChild(fictionList);
+
+  // Pushing all divs in the catagoryContainer div
+  catagoryContainer.appendChild(fictionDiv);
+  return catagoryContainer;
+}
+
 window.onload = () => {
   createBio();
 };
