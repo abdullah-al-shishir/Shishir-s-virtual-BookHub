@@ -298,3 +298,7 @@ footer {
     width: 100%;
   }
 }
+
+.common-div-style {
+  padding-bottom: 20px;
+}

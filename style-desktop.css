@@ -1,4 +1,6 @@
 .catagory-container {
-  margin-left: 400px;
   width: 500px;
+}
+.common-heading-style {
+  font-size: 2.2rem;
 }
