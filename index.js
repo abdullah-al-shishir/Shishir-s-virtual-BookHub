@@ -5,16 +5,14 @@ const mainMenu = document.getElementById("main-menu");
 mobileMenu.addEventListener("click", () => {
   mainMenu.classList.toggle("active");
 });
+
 // Creating underline when button is clicked
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      // Remove the 'active' class from all links
       navLinks.forEach((l) => l.classList.remove("active"));
-
-      // Add the 'active' class to the clicked link
       this.classList.add("active");
     });
   });
@@ -22,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // JavaScript for the menu buttons
 const bioSection = document.getElementById("bio");
+const booksContent = document.getElementById("booksContent");
 const mainBody = document.getElementById("main-booklist-id");
 const logoButton = document.getElementById("logo-btn");
 const menuBooksBtn = document.getElementById("menu-books-btn");
@@ -30,10 +29,9 @@ const menuBlogBtn = document.getElementById("menu-blog-btn");
 const menuAboutBtn = document.getElementById("menu-about-btn");
 
 let originalMainBodyContent = "";
-// -Dynamically created Bio here- //
+const headingBio = document.createElement("h1");
 
-function createBio() {
-  const headingBio = document.createElement("h1");
+function bookHub() {
   headingBio.innerHTML =
     "Welcome To <br> Shishir's Virtual BookHub. <br> Pamper Yourself with the best gift ever.";
   headingBio.classList.add("bio-text");
@@ -43,101 +41,127 @@ function createBio() {
 
   // ------Logo Button------//
   logoButton.addEventListener("click", () => {
+    bioSection.style.display = "block";
     headingBio.innerHTML =
-      "Welcome To <br> Shishir's Virtual Bookshelf. <br> Pamper Yourself with the best gift ever.";
+      "Welcome To <br> Shishir's Virtual BookHub. <br> Pamper Yourself with the best gift ever.";
     mainBody.innerHTML = originalMainBodyContent;
+    booksContent.innerHTML = "";
   });
+
   // -------Books Button------//
   menuBooksBtn.addEventListener("click", () => {
+    bioSection.style.display = "block";
     headingBio.innerHTML = "Enjoy all of my favourite books.";
+
+    if (!booksContent.querySelector("p")) {
+      const booksContentDetails = document.createElement("p");
+      booksContentDetails.innerText =
+        "Click on the books cover page to see the details";
+      booksContent.appendChild(booksContentDetails);
+    }
     mainBody.innerHTML = originalMainBodyContent;
+    console.log("Books button is clicked");
   });
+
   // -------Catagories Button------//
   menuCatagoryBtn.addEventListener("click", () => {
+    bioSection.style.display = "block";
     headingBio.innerHTML = "You can easily find all the books here! ";
-    mainBody.innerHTML = ``;
-
+    mainBody.innerHTML = "";
+    booksContent.innerHTML = "";
     const newSection = catagorySection();
     mainBody.appendChild(newSection);
 
-    console.log("Catagory Button is clicked");
+    console.log("Catagory button is clicked");
   });
+
   // -------Blog Button------//
+  menuBlogBtn.addEventListener("click", () => {
+    blogSection();
+
+    console.log("Blog button is clicked");
+  });
+
   // -------About Button------//
+  menuAboutBtn.addEventListener("click", () => {
+    bioSection.style.display = "none";
+    headingBio.innerHTML = "About Shishir's Virtual BookHub";
+    mainBody.innerHTML =
+      "<h2>About This Site</h2><p>This is a virtual book collection created by Shishir.</p>";
+    booksContent.innerHTML = "";
+    console.log("About button is clicked");
+  });
 }
+
 function catagorySection() {
   const catagoryContainer = document.createElement("div");
   catagoryContainer.classList.add("catagory-container");
 
-  // Fiction div
-  const fictionDiv = document.createElement("div");
-  fictionDiv.classList.add("common-div-style");
-  const fictionHeading = document.createElement("h1");
-  fictionHeading.classList.add("common-heading-style");
-  fictionHeading.innerText = "Fiction";
-  const fictionList = document.createElement("p");
-  fictionList.innerHTML = `1. Create Your Own Business <br> 2. ইহযৌবন <br> 3. প্রেক্ষাপটের দাসদাসী <br> 4. জলেশ্বরী : উপন্যাস ও গল্প সংগ্রহ খণ্ড ১ <br> 5. আবুল মনসুর আহমদের শ্রেষ্ঠ গল্প (পেপারব্যাক) <br> 6. কার্ল মার্ক্সের সমাধিতে হুমায়ূন আহমেদ`;
+  const categories = [
+    {
+      title: "Fiction",
+      list: [
+        "1. Create Your Own Business",
+        "2. ইহযৌবন",
+        "3. প্রেক্ষাপটের দাসদাসী",
+        "4. জলেশ্বরী : উপন্যাস ও গল্প সংগ্রহ খণ্ড ১",
+        "5. আবুল মনসুর আহমদের শ্রেষ্ঠ গল্প (পেপারব্যাক)",
+        "6. কার্ল মার্ক্সের সমাধিতে হুমায়ূন আহমেদ",
+      ],
+    },
+    {
+      title: "Action",
+      list: [
+        "1. Pumkin Juice",
+        "2. শহীদুল জহির গল্পসমগ্র",
+        "3. Until August: The Lost Novel",
+      ],
+    },
+    {
+      title: "Slice Of Life",
+      list: [
+        "1. Celebrate The Day of Forest",
+        "2. আগুনের খেলা ও অন্যান্য গল্প",
+        "3. চাষাঢে গল্প",
+        "4. Still Me (Penguin)",
+      ],
+    },
+    {
+      title: "Non-Fiction",
+      list: [
+        "1. Taxi Wallah and Other Stories",
+        "2. The Living Mountain: A Fable For Our Times",
+      ],
+    },
+    { title: "Academic", list: ["1. Anatomy of Silence"] },
+  ];
 
-  fictionDiv.appendChild(fictionHeading);
-  fictionDiv.appendChild(fictionList);
+  categories.forEach((category) => {
+    const categoryDiv = document.createElement("div");
+    categoryDiv.classList.add("common-div-style");
+    const heading = document.createElement("h1");
+    heading.classList.add("common-heading-style");
+    heading.innerText = category.title;
+    const list = document.createElement("p");
+    list.innerHTML = category.list.join("<br>");
+    categoryDiv.appendChild(heading);
+    categoryDiv.appendChild(list);
+    catagoryContainer.appendChild(categoryDiv);
+  });
 
-  // Action Div
-  const actionDiv = document.createElement("div");
-  actionDiv.classList.add("common-div-style");
-  const actionHeading = document.createElement("h1");
-  actionHeading.classList.add("common-heading-style");
-  actionHeading.innerText = "Action";
-  const actionList = document.createElement("p");
-  actionList.innerHTML = `1. Pumkin Juice <br> 2. শহীদুল জহির গল্পসমগ্র <br> 3. Until August: The Lost Novel`;
-
-  actionDiv.appendChild(actionHeading);
-  actionDiv.appendChild(actionList);
-
-  // Slice of life div
-  const sliceOfLifeDiv = document.createElement("div");
-  sliceOfLifeDiv.classList.add("common-div-style");
-  const sliceOfLifeHeading = document.createElement("h1");
-  sliceOfLifeHeading.classList.add("common-heading-style");
-  sliceOfLifeHeading.innerText = "Slice Of Life";
-  const sliceOfLifeList = document.createElement("p");
-  sliceOfLifeList.innerHTML = `1. Celebrate The Day of Forest <br> 2. আগুনের খেলা ও অন্যান্য গল্প <br> 3. চাষাঢে গল্প <br> 4. Still Me (Penguin)`;
-
-  sliceOfLifeDiv.appendChild(sliceOfLifeHeading);
-  sliceOfLifeDiv.appendChild(sliceOfLifeList);
-
-  //Non-Fiction div
-  const nonFictionDiv = document.createElement("div");
-  nonFictionDiv.classList.add("common-div-style");
-  const nonFictionHeading = document.createElement("h1");
-  nonFictionHeading.classList.add("common-heading-style");
-  nonFictionHeading.innerText = "Non-Fiction";
-  const nonFictionList = document.createElement("p");
-  nonFictionList.innerHTML = `1. Taxi Wallah and Other Stories <br> 2. The Living Mountain: A Fable For Our Times`;
-
-  nonFictionDiv.appendChild(nonFictionHeading);
-  nonFictionDiv.appendChild(nonFictionList);
-
-  // Academic div
-  const academicDiv = document.createElement("div");
-  academicDiv.classList.add("common-div-style");
-  const academicHeading = document.createElement("h1");
-  academicHeading.classList.add("common-heading-style");
-  academicHeading.innerText = "Academic";
-  const academicList = document.createElement("p");
-  academicList.innerHTML = `1. Anatomy of Silence`;
-
-  academicDiv.appendChild(academicHeading);
-  academicDiv.appendChild(academicList);
-
-  // Pushing all divs in the catagoryContainer div
-  catagoryContainer.appendChild(fictionDiv);
-  catagoryContainer.appendChild(actionDiv);
-  catagoryContainer.appendChild(sliceOfLifeDiv);
-  catagoryContainer.appendChild(nonFictionDiv);
-  catagoryContainer.appendChild(academicDiv);
   return catagoryContainer;
 }
 
+function blogSection() {
+  bioSection.style.display = "none";
+  booksContent.innerHTML = "";
+  mainBody.innerHTML = "";
+  const blogDetails = document.createElement("h2");
+  blogDetails.innerHTML = "Coming Soon!";
+  blogDetails.classList.add("blog-details");
+  mainBody.appendChild(blogDetails);
+}
+
 window.onload = () => {
-  createBio();
+  bookHub();
 };

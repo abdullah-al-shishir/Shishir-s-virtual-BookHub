@@ -156,6 +156,10 @@ header {
   line-height: 1.5;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.books-content {
+  text-align: center;
+  color: rgb(79, 90, 82);
+}
 
 .bookList {
   display: grid;
@@ -301,4 +305,8 @@ footer {
 
 .common-div-style {
   padding-bottom: 20px;
+}
+.blog-details {
+  margin-top: 100px;
+  height: 55.5vh;
 }
