@@ -84,11 +84,7 @@ function bookHub() {
 
   // -------About Button------//
   menuAboutBtn.addEventListener("click", () => {
-    bioSection.style.display = "none";
-    headingBio.innerHTML = "About Shishir's Virtual BookHub";
-    mainBody.innerHTML =
-      "<h2>About This Site</h2><p>This is a virtual book collection created by Shishir.</p>";
-    booksContent.innerHTML = "";
+    aboutSection();
     console.log("About button is clicked");
   });
 }
@@ -160,6 +156,27 @@ function blogSection() {
   blogDetails.innerHTML = "Coming Soon!";
   blogDetails.classList.add("blog-details");
   mainBody.appendChild(blogDetails);
+  console.log("About button is clicked");
+}
+
+function aboutSection() {
+  bioSection.style.display = "none";
+  headingBio.innerHTML = "About Shishir's Virtual BookHub";
+  mainBody.innerHTML = `<div class="about-me-container">
+        <h2 class="about-me-heading">
+            About Me
+        </h2>
+        <p class="about-me-paragraph">
+            As the creator of <span class="highlight">Shishir’s Virtual BookHub</span>, I’m <span class="highlight">Abdullah Al Shishir</span>, a passionate bibliophile. This website is a personal project born from my love for books and a desire to share that passion with others.
+        </p>
+        <p class="about-me-paragraph">
+            I built this platform to blend my technical skills with my appreciation for the written word. My goal is to offer a simple, engaging space for discovering new books and organizing your reading journey.
+        </p>
+        <p class="about-me-paragraph">
+            Thank you for visiting. I hope this hub helps you find your next favorite story. Happy reading!
+        </p>
+    </div>`;
+  booksContent.innerHTML = "";
 }
 
 window.onload = () => {

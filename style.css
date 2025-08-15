@@ -307,6 +307,38 @@ footer {
   padding-bottom: 20px;
 }
 .blog-details {
-  margin-top: 100px;
-  height: 55.5vh;
+  margin-top: 70px;
+  height: 60.5vh;
+}
+
+.about-me-container {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-me-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.about-me-paragraph {
+  font-size: 1.25rem;
+  color: #4b5563;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #111827;
 }
