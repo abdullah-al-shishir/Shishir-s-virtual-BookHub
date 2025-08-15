@@ -27,6 +27,7 @@ const menuBooksBtn = document.getElementById("menu-books-btn");
 const menuCatagoryBtn = document.getElementById("menu-catagory-btn");
 const menuBlogBtn = document.getElementById("menu-blog-btn");
 const menuAboutBtn = document.getElementById("menu-about-btn");
+const footerPosition = document.getElementById("footer-positon");
 
 let originalMainBodyContent = "";
 const headingBio = document.createElement("h1");
@@ -46,6 +47,7 @@ function bookHub() {
       "Welcome To <br> Shishir's Virtual BookHub. <br> Pamper Yourself with the best gift ever.";
     mainBody.innerHTML = originalMainBodyContent;
     booksContent.innerHTML = "";
+    footerPosition.classList.remove("footer-fixed");
   });
 
   // -------Books Button------//
@@ -60,6 +62,7 @@ function bookHub() {
       booksContent.appendChild(booksContentDetails);
     }
     mainBody.innerHTML = originalMainBodyContent;
+    footerPosition.classList.remove("footer-fixed");
     console.log("Books button is clicked");
   });
 
@@ -72,6 +75,7 @@ function bookHub() {
     const newSection = catagorySection();
     mainBody.appendChild(newSection);
 
+    footerPosition.classList.remove("footer-fixed");
     console.log("Catagory button is clicked");
   });
 
@@ -156,6 +160,7 @@ function blogSection() {
   blogDetails.innerHTML = "Coming Soon!";
   blogDetails.classList.add("blog-details");
   mainBody.appendChild(blogDetails);
+  footerPosition.classList.add("footer-fixed");
   console.log("About button is clicked");
 }
 
@@ -177,6 +182,7 @@ function aboutSection() {
         </p>
     </div>`;
   booksContent.innerHTML = "";
+  footerPosition.classList.add("footer-fixed");
 }
 
 window.onload = () => {

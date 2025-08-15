@@ -17,3 +17,6 @@
   width: 800px;
   gap: 2.5rem;
 }
+.footer-fixed {
+  border-top: 1.5px solid #b7aaaa;
+}

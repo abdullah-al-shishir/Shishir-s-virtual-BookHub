@@ -229,6 +229,11 @@ footer {
   color: #625a5a;
   text-decoration: none;
 }
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
 /* Responsive Design */
 /* Medium devices (Tablets: 768px and up) */
