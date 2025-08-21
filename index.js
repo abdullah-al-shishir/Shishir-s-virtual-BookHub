@@ -57,8 +57,7 @@ function bookHub() {
 
     if (!booksContent.querySelector("p")) {
       const booksContentDetails = document.createElement("p");
-      booksContentDetails.innerText =
-        "Click on the books cover page to see the details";
+      booksContentDetails.innerText = "Click on the books to see the details";
       booksContent.appendChild(booksContentDetails);
     }
     mainBody.innerHTML = originalMainBodyContent;
